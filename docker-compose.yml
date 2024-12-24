@@ -17,7 +17,6 @@ services:
     expose:
       - 5432
 
-
   backend:
     container_name: Bag-Store
     build: 
@@ -32,6 +31,9 @@ services:
 
     environment:
       - DEBUG=True
+
+    env_file:
+      - ./envs/dev/django/.env
 
     restart: always
     ports:
