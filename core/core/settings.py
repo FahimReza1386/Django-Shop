@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'website',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,6 @@ EMAIL_USE_SSL = config("EMAIL_USE_SSL", cast=bool, default=False)
 EMAIL_PORT = config("EMAIL_PORT",cast=int, default=25) 
 EMAIL_HOST_USER = config("EMAIL_HOST_USER", default="")
 EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD" , default="")
+
+
+AUTH_USER_MODEL = "accounts.User"
