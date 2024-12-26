@@ -26,7 +26,7 @@ SECRET_KEY = config("SECRET_KEY" , default="Test")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("SECRET_KEY" , cast=bool , default=True)
 
-ALLOWED_HOSTS = config("ALLOWED_HOSTS" , cast=lambda v:[item.strip() for item in v.split(',') ] , default="Test")
+ALLOWED_HOSTS = config("ALLOWED_HOSTS" , cast=lambda v:[item.strip() for item in v.split(',')] , default="*")
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'website',
 ]
 
 MIDDLEWARE = [
