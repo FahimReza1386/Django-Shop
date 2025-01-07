@@ -17,6 +17,8 @@
     <!-- main-style---------------------------------->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <!-- The Toastify Config -->
+    <link rel="stylesheet" href="{% static 'toastify/toastify.css' %}">
 
 
     {% block extra_css %}
@@ -150,7 +152,7 @@
                                                     <a href="#" class="account-link">تنظیمات</a>
                                                 </li>
                                                 <li class="account-item">
-                                                    <a href="#" class="account-link">خروج</a>
+                                                    <a href="{% url 'accounts:logout' %}" class="account-link">خروج</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -1280,7 +1282,7 @@
         </svg>
     </div>
     <!-- scroll_Progress------------------------->
-    <!-- Page Loader----------------------------->
+    <!-- Page Loader---------------------------
     <div class="P-loader">
         <div class="P-loader-content">
             <div class="logo-loader">
@@ -1290,11 +1292,13 @@
                 <img src="{% static 'images/three-dots.svg' %}" width="50" alt="">
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Page Loader----------------------------->
 
-</body>
-<!-- file js---------------------------------------------------->
+
+
+
+    <!-- file js---------------------------------------------------->
 <script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
 <script src="{% static 'js/vendor/bootstrap.js' %}"></script>
 <!-- plugin----------------------------------------------------->
@@ -1304,6 +1308,10 @@
 <script src="{% static 'js/vendor/jquery.jqZoom.js' %}"></script>
 <!-- main js---------------------------------------------------->
 <script src="{% static 'js/main.js' %}"></script>
+<!-- The Toastify Config js -->
+<script src="{% static 'toastify/toastify-es.js' %}"></script>
+<script src="{% static 'toastify/toastify.js' %}"></script>
+
 
 
 
@@ -1313,4 +1321,7 @@
 {% block extra_js_no_compress %}
 {% endblock extra_js_no_compress %}
 
+{% include 'messages.html' %}
+
+</body>
 </html>
