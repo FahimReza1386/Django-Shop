@@ -25,7 +25,7 @@ class ProductModel(models.Model):
     title= models.CharField(max_length=255)
     slug= models.SlugField(allow_unicode=True)
     status= models.IntegerField(choices=ProductStatusType.choices, default=ProductStatusType.draft.value)
-    descrption = models.TextField()
+    description = models.TextField()
     image= models.ImageField(upload_to="product/img/", default="/default/product-image.png")
     brief_description= models.TextField(null=True, blank=True)
     stock= models.PositiveIntegerField(default=0)
