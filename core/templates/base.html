@@ -9,6 +9,7 @@
     <!-- font---------------------------------------->
     <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css' %}">
+
     <!-- plugin-------------------------------------->
     <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/vendor/owl.carousel.min.css' %}">
@@ -19,6 +20,8 @@
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
     <!-- The Toastify Config -->
     <link rel="stylesheet" href="{% static 'toastify/toastify.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/vendor/noUISlider.min.css' %}">
 
 
     {% block extra_css %}
@@ -46,8 +49,8 @@
                         <div class="col-lg-8 pr">
                             <div class="header-search row text-right">
                                 <div class="header-search-box">
-                                    <form action="#" class="form-search">
-                                        <input type="search" class="header-search-input" name="search-input"
+                                    <form class="form-search">
+                                        <input type="search" class="header-search-input" name="q"
                                             placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
                                         <div class="action-btns">
                                             <button class="btn btn-search" type="submit">
@@ -813,7 +816,7 @@
                                                                         <i class="mdi mdi-close"></i>
                                                                     </a>
                                                                     <a href="#" class="mini-cart-item-image d-block">
-                                                                        <img src="{% static 'images/menu-main/img-card.jpg' %}"' %}">
+                                                                        <img src="{% static 'images/menu-main/img-card.jpg' %}">
                                                                         </a>
                                                                         <span class="product-name-card">لپ تاپ چووی
                                                                             الترابوک 14
@@ -842,8 +845,7 @@
                                                                         </a>
                                                                         <a href="#" class="mini-cart-item-image d-block">
                                                                             <img
-                                                                                src="{% static '
-                                                                            images/menu-main/img-card-2.jpg' %}"' %}">
+                                                                                src="{% static 'images/menu-main/img-card-2.jpg' %}">
                                                                     </a>
                                                                     <span class="product-name-card">هواوای میت
                                                                         بوک X پرو
@@ -1074,7 +1076,7 @@
                     <div class="col-lg-6 col-md-6 col-xs-12">
                         <div class="logo">
                             <a href="#">
-                                <img src="{% static ' images/logo.png' %}" alt="کالامارکت">
+                                <img src="{% static 'images/logo.png' %}" alt="کالامارکت">
                             </a>
                         </div>
                     </div>
@@ -1243,7 +1245,7 @@
                                                         style="width: 300.75px; margin-left: 10px;">
                                                         <div class="item">
                                                             <a href="#" class="d-block hover-img-link">
-                                                                <img src="{% static ' images/footer/license/L-1.png' %}"
+                                                                <img src="{% static 'images/footer/license/L-1.png' %}"
                                                                     class="img-fluid img-brand" alt="">
                                                             </a>
                                                         </div>
@@ -1252,7 +1254,7 @@
                                                         style="width: 300.75px; margin-left: 10px;">
                                                         <div class="item">
                                                             <a href="#" class="d-block hover-img-link mt-0">
-                                                                <img src="{% static ' images/footer/license/L-2.png' %}"
+                                                                <img src="{% static 'images/footer/license/L-2.png' %}"
                                                                     class="img-fluid img-brand" alt="">
                                                             </a>
                                                         </div>
@@ -1312,6 +1314,11 @@
 <script src="{% static 'toastify/toastify-es.js' %}"></script>
 <script src="{% static 'toastify/toastify.js' %}"></script>
 
+
+<script src="{% static 'js/vendor/ResizeSensor.min.js' %}"></script>
+<script src="{% static 'js/vendor/theia-sticky-sidebar.min.js' %}"></script>
+<script src="{% static 'js/vendor/wNumb.js' %}"></script>
+<script src="{% static 'js/vendor/nouislider.min.js' %}"></script>
 
 
 

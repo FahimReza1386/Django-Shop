@@ -1,0 +1,370 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block title %}
+صفحه محصولات
+{% endblock %}
+
+
+
+{% block extra_css %}
+{% endblock %}
+
+
+
+{% block extra_css_no_compress %}
+{% endblock %}
+
+
+
+{% block content %}
+
+<!-- arshive-product----------------------->
+<div class="container-main">
+    <div class="d-block">
+        <div class="page-content page-row">
+            <div class="main-row">
+                <div id="breadcrumb">
+                    <i class="mdi mdi-home"></i>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">خانه</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">آرشیو محصولات</li>
+                        </ol>
+                    </nav>
+                </div>
+
+                <!-- start sidebar--------------------->
+                <div class="col-lg-3 col-md-3 col-xs-12 pr sticky-sidebar">
+                    <div class="shop-archive-sidebar">
+                        <div class="sidebar-archive mb-3">
+                            <section class="widget-product-categories">
+                                <header class="cat-header">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-block text-right" data-toggle="collapse"
+                                            href="#headingOne" role="button" aria-expanded="false"
+                                            aria-controls="headingOne">
+                                            دسته بندی محصولات
+                                            <i class="mdi mdi-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                </header>
+
+                                <div class="card-main mb-0">
+
+                                    <div class="product-filter">
+                                        <div class="card">
+                                            <div class="collapse show" id="headingOne">
+                                                <div class="card-main mb-0">
+                                                    {% for category in categories %}
+                                                    
+                                                    <div class="form-auth-row">
+                                                        <label for="category-{{ category.id }}" class="ui-checkbox">
+                                                            <input type="checkbox" value="{{ category.id }}" name="category" id="category-{{ category.id }}">
+                                                            <span class="ui-checkbox-check"></span>
+                                                        </label>
+                                                        <label for="category-{{ category.id }}" class="remember-me">{{ category.title }}</label>
+                                                    </div>
+                                                    {% endfor %}
+                                                </div>
+                                              
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section class="widget-product-categories">
+                                <header class="cat-header">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-block text-right collapsed" data-toggle="collapse"
+                                            href="#headingThree" role="button" aria-expanded="false"
+                                            aria-controls="headingThree">
+                                            محدوده قیمت
+                                            <i class="mdi mdi-chevron-down"></i>
+                                        </button>
+                                    </h2>
+                                </header>
+                                <div class="product-filter">
+                                    <div class="card">
+                                        <div class="collapse show" id="headingThree">
+                                            <div class="card-main mb-0">
+                                                <div class="box-data">
+                                                    <form action=".">
+                                                       
+                                                            <div class="form-group">
+                                                                <label class="form-label d-flex" for="min-price-filter">کمترین قیمت</label>
+                                                                <input class="form-control" type="number" name="min_price"
+                                                                    placeholder="کمترین قیمت مد نظر" id="min-price-filter">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="form-label d-flex" for="max-price-filter">بیشترین قیمت</label>
+                                                                <input class="form-control" type="number" name="max_price"
+                                                                    placeholder="بیشترین قیمت مد نظر" id="max-price-filter">
+                                                            </div>
+                                                    
+                                                        <button type="submit" class="btn btn-range">
+                                                            اعمال
+                                                        </button>
+                                                        <a href="{% url 'shop:product-grid' %}"  class="btn btn-range bg-danger">
+                                                            حذف فیلتر ها
+                                                        </a>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-9 col-xs-12 pl">
+                    <div class="shop-archive-content mt-3 d-block">
+                        <div class="archive-header">
+                            <h2 class="archive-header-title">آرشیو محصولات</h2>
+                            <div class="sort-tabs mt-0 d-inline-block pr">
+                                <h4>مرتب‌سازی بر اساس :</h4>
+                            </div>
+                            <div class="nav-sort-tabs-res">
+                                <form action=".">
+                                <ul class="nav sort-tabs-options" id="order-by-filter" role="tablist">
+                                
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="Most-visited-tab" data-toggle="tab"
+                                            href="#Most-visited" role="tab" aria-controls="Most-visited" value=""
+                                            aria-selected="true"  value="">مرتب سازی</a>
+                                    </li>
+                    
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="order_by" data-toggle="tab" href="#s" role="tab"
+                                            aria-controls="-created_date" aria-selected="false" value="-created_date"  >جدیدترین</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="newest-tab" data-toggle="tab" href="#newest" role="tab"
+                                            aria-controls="created_date" aria-selected="false" value="created_date" >قدیمی ترین</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="cheapest-tab" data-toggle="tab" href="#cheapest"
+                                            role="tab" aria-controls="price" aria-selected="false" value="price" >ارزان‌ترین</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="most-expensive-tab" data-toggle="tab"
+                                            href="#most-expensive" role="tab" aria-controls="-price"
+                                            aria-selected="false" value="-price"  >گران‌ترین</a>
+                                    </li>
+                                </ul>
+                            </form>
+                            </div>
+                        </div>
+                        <div class="product-items">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="Most-visited" role="tabpanel"
+                                    aria-labelledby="Most-visited-tab">
+                                    <div class="row">
+
+                                        {% for object in object_list %}
+
+                                        <div class="col-lg-3 col-md-3 col-xs-12 order-1 d-block mb-3">
+
+                                            <section class="product-box product product-type-simple">
+                                                <div class="thumb">
+                                                    <a href="{% url 'shop:product-detail' slug=object.slug %}"
+                                                        class="d-block">
+                                                        {% if object.is_discounted %}
+                                                        <div class="promotion-badge">فروش ویژه</div>
+                                                        {% endif %}
+
+                                                        <div class="product-rate">
+                                                            <i class="fa fa-star active"></i>
+                                                            <i class="fa fa-star active"></i>
+                                                            <i class="fa fa-star active"></i>
+                                                            <i class="fa fa-star active"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+
+                                                        {% if object.is_discounted %}
+                                                        <div class="discount-d">
+                                                            <span>{{ object.discount_percent }}%</span>
+                                                        </div>
+                                                        {% endif %}
+                                                        <img src="{{ object.image.url }}">
+                                                    </a>
+                                                </div>
+                                                <div class="title">
+                                                    <a href="{% url 'shop:product-detail' slug=object.slug %}">{{ object.title }}</a>
+                                                </div>
+                                                <div class="price">
+                                                    {% if object.is_discounted %}
+                                                    <span class="amount">{{ object.get_price_after_sale }}
+                                                        <span>تومان</span>
+                                                    </span>
+                                                    {% else %}
+                                                    <span class="amount">{{ object.price }}
+                                                        <span>تومان</span>
+                                                    </span>
+                                                    {% endif %}
+                                                </div>
+
+                                            </section>
+                                        </div>
+                                        {% endfor %}
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        {% if is_paginated %}
+
+                        <div class="pagination-product">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination">
+                                    {% if page_obj.has_previous %}
+                                    <li class="page-item s">
+                                        <button class="page-link"
+                                            onclick="ChangePage(`{{ page_obj.previous_page_number }}`)"
+                                            aria-label="Next">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </button>
+                                    </li>
+
+                                    {% endif %}
+                                    {% for i in page_obj.paginator.page_range %}
+                                    {% if i == page_obj.number %}
+                                    <li class="page-item"><a class="page-link active" href="#">{{ i }}</a></li>
+                                    {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %} <li
+                                        class="page-item"><button class="page-link" onclick="ChangePage(`{{ i }}`)">{{ i
+                                            }}</button></li>
+                                        {% endif %}
+                                        {% endfor %}
+                                        {% if page_obj.has_next %}
+
+                                        <li class="page-item">
+                                            <button class="page-link"
+                                                onclick="ChangePage(`{{ page_obj.next_page_number}}`)"
+                                                aria-label="Previous">
+                                                <span aria-hidden="true">&raquo;</span>
+
+                                            </button>
+                                        </li>
+
+                                        {% endif %}
+
+
+                                </ul>
+                            </nav>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- arshive-product----------------------->
+
+{% endblock content %}
+
+
+
+{% block extra_js%}
+
+<script>
+    function ChangePage(page_number) {
+        let current_url_params = new URLSearchParams(window.location.search)
+        current_url_params.set("page", page_number)
+        let new_url = window.location.pathname + "?" + current_url_params.toString()
+        window.location.href = new_url
+    }
+</script>
+
+
+<script>
+    $(document).ready(function () {
+
+// فیلتر قیمت
+$('#price-filter-form').submit(function (e) {
+    e.preventDefault(); // جلوگیری از ارسال فرم به طور پیش‌فرض
+
+    let minPrice = $("#slider-non-linear-step").slider("values", 0);
+    let maxPrice = $("#slider-non-linear-step").slider("values", 1);
+
+    // بررسی اینکه آیا اسلایدر به درستی مقادیر را دریافت می‌کند
+    console.log("Min Price: ", minPrice, "Max Price: ", maxPrice);
+
+    let current_url_params = new URLSearchParams(window.location.search);
+    current_url_params.set("min_price", minPrice);
+    current_url_params.set("max_price", maxPrice);
+
+    let new_url = window.location.pathname + "?" + current_url_params.toString();
+    console.log("New URL: ", new_url); // چاپ URL جدید برای دیباگ
+
+    window.location.href = new_url;  // رفرش صفحه
+});
+
+// دسته‌بندی‌ها
+$('input[name="category"]').change(function () {
+    let selectedCategories = [];
+    $('input[name="category"]:checked').each(function () {
+        selectedCategories.push($(this).val());
+    });
+
+    // چاپ دسته‌بندی‌های انتخابی برای دیباگ
+    console.log("Selected Categories: ", selectedCategories);
+
+    let current_url_params = new URLSearchParams(window.location.search);
+    if (selectedCategories.length > 0) {
+        current_url_params.set("category_id", selectedCategories.join(","));
+    } else {
+        current_url_params.delete("category_id");
+    }
+
+    let new_url = window.location.pathname + "?" + current_url_params.toString();
+    console.log("New URL: ", new_url); // چاپ URL جدید برای دیباگ
+
+    window.location.href = new_url;  // رفرش صفحه
+});
+
+// مرتب‌سازی بر اساس
+$('#order-by-filter .nav-link').click(function (e) {
+    e.preventDefault(); // جلوگیری از عملکرد پیش‌فرض
+
+    let selectedValue = $(this).attr('value');
+    console.log("Selected Order: ", selectedValue);
+
+    let current_url_params = new URLSearchParams(window.location.search);
+    current_url_params.set("order_by", selectedValue);
+
+    let new_url = window.location.pathname + "?" + current_url_params.toString();
+    console.log("New URL: ", new_url); // چاپ URL جدید برای دیباگ
+
+    window.location.href = new_url;  // رفرش صفحه
+});
+
+
+
+
+});
+
+</script>
+
+{% endblock %}
+
+
+
+{% block extra_js_no_compress %}
+{% endblock %}

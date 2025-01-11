@@ -46,7 +46,7 @@ class ProductModel(models.Model):
     def get_price_after_sale(self):
         amount_price = self.price * Decimal(self.discount_percent / 100)
         price = self.price - amount_price
-        return price
+        return round(price)
     
 
     def is_discounted(self):
