@@ -247,8 +247,7 @@
                                     {% if i == page_obj.number %}
                                     <li class="page-item"><a class="page-link active" href="#">{{ i }}</a></li>
                                     {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %} <li
-                                        class="page-item"><button class="page-link" onclick="ChangePage(`{{ i }}`)">{{ i
-                                            }}</button></li>
+                                        class="page-item"><button class="page-link" onclick="ChangePage(`{{ i }}`)">{{ i }}</button></li>
                                         {% endif %}
                                         {% endfor %}
                                         {% if page_obj.has_next %}
