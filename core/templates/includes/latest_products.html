@@ -1,0 +1,78 @@
+{% load humanize %}
+<section class="section-slider amazing-section pt-3">
+    <div class="container-amazing col-12">
+        <div class="col-lg-3 display-md-none pull-right">
+            <div class="amazing-product text-center">
+                <a href="#">
+                    <img src="/static/images/slider-amazing/alarm-clock.png" alt="">
+                </a>
+                <h3 class="amazing-heading-title amazing-size-default"> جدید ترین محصول!</h3>
+            </div>
+        </div>
+        <div class="col-lg-9 col-md-12 pull-left">
+            <div class="slider-widget-products mb-0">
+                <div class="widget widget-product card">
+                    <header class="card-header">
+                        <span class="title-one">محصولات شگفت انگیز</span>
+                        <h3 class="card-title">مشاهده همه</h3>
+                    </header>
+                    <div class="product-carousel owl-carousel owl-theme owl-rtl owl-loaded owl-drag">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage"
+                                style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2234px;">
+                                {% for item in latest %}
+
+                                <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
+                                    <div class="item">
+                                        <a href="{% url 'shop:product-detail' slug=item.slug %}" class="d-block hover-img-link">
+                                            <img src="{{ item.image.url }}"
+                                                class="img-fluid" alt="">
+                                            <span class="icon-view">
+                                                <strong><i class="fa fa-eye"></i></strong>
+                                            </span>
+                                        </a>
+                                        <h2 class="post-title pt-4">
+                                            <a href="#">
+                                            {{ item.title }}
+                                            </a>
+                                        </h2>
+                                        <div class="price">
+                                            {% if item.is_discounted %}
+                                                <del><span>{{ item.price|intcomma }}<span>تومان</span></span></del>
+                                                <ins><span>{{ item.get_price_after_sale|intcomma }}<span>تومان</span></span></ins>
+                                                {% else %}
+                                                <ins><span>{{ item.price|intcomma }}<span>تومان</span></span></ins>
+                                                {% endif %}
+                                        </div>
+                                        <div class="actions">
+                                            <ul>
+                                                <li class="action-item like">
+                                                    <button class="btn btn-light add-product-wishes" type="submit">
+                                                        <i class="fa fa-heart-o"></i>
+                                                    </button>
+                                                </li>
+                                                <li class="action-item compare">
+                                                    <button class="btn btn-light btn-compare" type="submit">
+                                                        <i class="fa fa-random"></i>
+                                                    </button>
+                                                </li>
+                                                <li class="action-item add-to-cart">
+                                                    <button class="btn btn-light btn-add-to-cart" type="submit">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

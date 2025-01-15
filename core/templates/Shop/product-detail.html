@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load humanize %}
+{% load shop_tags %}
 
 {% block title %}
 صفحه محصول
@@ -1237,6 +1238,8 @@
     </div>
     </div>
     <!-- arshive-product----------------------->
+
+    {% show_similar_products product=object %}
 
 {% endblock %}
 

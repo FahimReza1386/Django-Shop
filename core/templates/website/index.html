@@ -1,5 +1,7 @@
 {% extends '../base.html' %}
 {% load static %}
+{% load humanize %}
+{% load shop_tags %}
 
 
 {% block title %}
@@ -114,6 +116,7 @@
         </div>
     </div>
 </div>
+
 <div class="nav-categories-overlay"></div>
 <div class="overlay-search-box"></div>
 <!-- header-------------------------------->
@@ -159,348 +162,17 @@
                     <div class="card-subtitle">{{ total_items }}</div>
                 </div>
             </a>
+            
         </div>
-
         {% endfor %}
+
     </div>
+    
     <!-- product_categories-------------------->
 </div>
 <!-- slidre-product------------------------>
 <!--slider-amazing------------------------->
-<section class="section-slider amazing-section pt-3">
-    <div class="container-amazing col-12">
-        <div class="col-lg-3 display-md-none pull-right">
-            <div class="amazing-product text-center">
-                <a href="#">
-                    <img src="{% static 'images/slider-amazing/alarm-clock.png' %}" alt="">
-                </a>
-                <h3 class="amazing-heading-title amazing-size-default">زنگ تخفیف!</h3>
-            </div>
-        </div>
-        <div class="col-lg-9 col-md-12 pull-left">
-            <div class="slider-widget-products mb-0">
-                <div class="widget widget-product card">
-                    <header class="card-header">
-                        <span class="title-one">محصولات شگفت انگیز</span>
-                        <h3 class="card-title">مشاهده همه</h3>
-                    </header>
-                    <div class="product-carousel owl-carousel owl-theme owl-rtl owl-loaded owl-drag">
-                        <div class="owl-stage-outer">
-                            <div class="owl-stage"
-                                style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2234px;">
-                                <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
-                                    <div class="item">
-                                        <a href="#" class="d-block hover-img-link" data-toggle="modal"
-                                            data-target="#exampleModal">
-                                            <img src="{% static 'images/slider-product/Stove-lopez.jpg' %}"
-                                                class="img-fluid" alt="">
-                                            <span class="icon-view">
-                                                <strong><i class="fa fa-eye"></i></strong>
-                                            </span>
-                                        </a>
-                                        <div class="countdown-timer">
-                                            <div class="countdown h4" data-date-time="10/10/2025 12:00"
-                                                data-labels="{&quot;label-day&quot;: &quot;روز&quot;, &quot;label-hour&quot;: &quot;ساعت&quot;, &quot;label-minute&quot;: &quot;دقیقه&quot;, &quot;label-second&quot;: &quot;ثانیه&quot;}">
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">1765</div>
-                                                    <div class="countdown-label">روز</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">16</div>
-                                                    <div class="countdown-label">ساعت</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">25</div>
-                                                    <div class="countdown-label">دقیقه</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">07</div>
-                                                    <div class="countdown-label">ثانیه</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2 class="post-title pt-4">
-                                            <a href="#">
-                                                اجاق گاز طرح فر لوپز مدل 10000S
-                                            </a>
-                                        </h2>
-                                        <div class="price">
-                                            <del><span>۱۲,۰۰۰,۰۰۰<span>تومان</span></span></del>
-                                            <ins><span>۱۰,۵۰۰,۰۰۰<span>تومان</span></span></ins>
-                                        </div>
-                                        <div class="actions">
-                                            <ul>
-                                                <li class="action-item like">
-                                                    <button class="btn btn-light add-product-wishes" type="submit">
-                                                        <i class="fa fa-heart-o"></i>
-                                                    </button>
-                                                </li>
-                                                <li class="action-item compare">
-                                                    <button class="btn btn-light btn-compare" type="submit">
-                                                        <i class="fa fa-random"></i>
-                                                    </button>
-                                                </li>
-                                                <li class="action-item add-to-cart">
-                                                    <button class="btn btn-light btn-add-to-cart" type="submit">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
-                                    <div class="item">
-                                        <a href="#" class="d-block hover-img-link" data-toggle="modal"
-                                            data-target="#exampleModal">
-                                            <img src="{% static 'images/slider-product/SWF-40R.jpg' %}"
-                                                class="img-fluid" alt="">
-                                            <span class="icon-view">
-                                                <strong><i class="fa fa-eye"></i></strong>
-                                            </span>
-                                        </a>
-                                        <div class="countdown-timer">
-                                            <div class="countdown h4" data-date-time="10/10/2025 12:00"
-                                                data-labels="{&quot;label-day&quot;: &quot;روز&quot;, &quot;label-hour&quot;: &quot;ساعت&quot;, &quot;label-minute&quot;: &quot;دقیقه&quot;, &quot;label-second&quot;: &quot;ثانیه&quot;}">
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">1765</div>
-                                                    <div class="countdown-label">روز</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">16</div>
-                                                    <div class="countdown-label">ساعت</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">25</div>
-                                                    <div class="countdown-label">دقیقه</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">07</div>
-                                                    <div class="countdown-label">ثانیه</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2 class="post-title pt-4">
-                                            <a href="#">
-                                                آون توستر سان ورد مدل SWF-40R
-                                            </a>
-                                        </h2>
-                                        <div class="price">
-                                            <del><span>۳,۲۰۰,۰۰۰<span>تومان</span></span></del>
-                                            <ins><span>۲,۵۰۰,۰۰۰<span>تومان</span></span></ins>
-                                        </div>
-                                        <div class="actions">
-                                            <ul>
-                                                <li class="action-item like">
-                                                    <button class="btn btn-light add-product-wishes" type="submit">
-                                                        <i class="fa fa-heart-o"></i>
-                                                    </button>
-                                                </li>
-                                                <li class="action-item compare">
-                                                    <button class="btn btn-light btn-compare" type="submit">
-                                                        <i class="fa fa-random"></i>
-                                                    </button>
-                                                </li>
-                                                <li class="action-item add-to-cart">
-                                                    <button class="btn btn-light btn-add-to-cart" type="submit">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
-                                    <div class="item">
-                                        <a href="#" class="d-block hover-img-link" data-toggle="modal"
-                                            data-target="#exampleModal">
-                                            <img src="{% static 'images/slider-product/ECM2013.jpg' %}"
-                                                class="img-fluid" alt="">
-                                            <span class="icon-view">
-                                                <strong><i class="fa fa-eye"></i></strong>
-                                            </span>
-                                        </a>
-                                        <div class="countdown-timer">
-                                            <div class="countdown h4" data-date-time="10/10/2025 12:00"
-                                                data-labels="{&quot;label-day&quot;: &quot;روز&quot;, &quot;label-hour&quot;: &quot;ساعت&quot;, &quot;label-minute&quot;: &quot;دقیقه&quot;, &quot;label-second&quot;: &quot;ثانیه&quot;}">
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">1765</div>
-                                                    <div class="countdown-label">روز</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">16</div>
-                                                    <div class="countdown-label">ساعت</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">25</div>
-                                                    <div class="countdown-label">دقیقه</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">07</div>
-                                                    <div class="countdown-label">ثانیه</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2 class="post-title pt-4">
-                                            <a href="#">
-                                                اسپرسوساز مباشی مدل ECM2013
-                                            </a>
-                                        </h2>
-                                        <div class="price">
-                                            <del><span>۳,۵۰۰,۰۰۰<span>تومان</span></span></del>
-                                            <ins><span>۲,۰۰۰,۰۰۰<span>تومان</span></span></ins>
-                                        </div>
-                                        <div class="actions">
-                                            <ul>
-                                                <li class="action-item like">
-                                                    <button class="btn btn-light add-product-wishes" type="submit">
-                                                        <i class="fa fa-heart-o"></i>
-                                                    </button>
-                                                </li>
-                                                <li class="action-item compare">
-                                                    <button class="btn btn-light btn-compare" type="submit">
-                                                        <i class="fa fa-random"></i>
-                                                    </button>
-                                                </li>
-                                                <li class="action-item add-to-cart">
-                                                    <button class="btn btn-light btn-add-to-cart" type="submit">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
-                                    <div class="item">
-                                        <a href="#" class="d-block hover-img-link" data-toggle="modal"
-                                            data-target="#exampleModal">
-                                            <img src="{% static 'images/slider-product/DNR 290T-366T.jpg' %}"
-                                                class="img-fluid" alt="">
-                                            <span class="icon-view">
-                                                <strong><i class="fa fa-eye"></i></strong>
-                                            </span>
-                                        </a>
-                                        <div class="countdown-timer">
-                                            <div class="countdown h4" data-date-time="10/10/2025 12:00"
-                                                data-labels="{&quot;label-day&quot;: &quot;روز&quot;, &quot;label-hour&quot;: &quot;ساعت&quot;, &quot;label-minute&quot;: &quot;دقیقه&quot;, &quot;label-second&quot;: &quot;ثانیه&quot;}">
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">1765</div>
-                                                    <div class="countdown-label">روز</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">16</div>
-                                                    <div class="countdown-label">ساعت</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">25</div>
-                                                    <div class="countdown-label">دقیقه</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">07</div>
-                                                    <div class="countdown-label">ثانیه</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2 class="post-title pt-4">
-                                            <a href="#">
-                                                یخچال و فریزر دو قلوی دونار مدل DNR 290T-366T
-                                            </a>
-                                        </h2>
-                                        <div class="price">
-                                            <del><span>۶,۵۰۰,۰۰۰<span>تومان</span></span></del>
-                                            <ins><span>۴,۲۰۰,۰۰۰<span>تومان</span></span></ins>
-                                        </div>
-                                        <div class="actions">
-                                            <ul>
-                                                <li class="action-item like">
-                                                    <button class="btn btn-light add-product-wishes" type="submit">
-                                                        <i class="fa fa-heart-o"></i>
-                                                    </button>
-                                                </li>
-                                                <li class="action-item compare">
-                                                    <button class="btn btn-light btn-compare" type="submit">
-                                                        <i class="fa fa-random"></i>
-                                                    </button>
-                                                </li>
-                                                <li class="action-item add-to-cart">
-                                                    <button class="btn btn-light btn-add-to-cart" type="submit">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="owl-item" style="width: 309.083px; margin-left: 10px;">
-                                    <div class="item">
-                                        <a href="#" class="d-block hover-img-link" data-toggle="modal"
-                                            data-target="#exampleModal">
-                                            <img src="{% static 'images/slider-product/Avocado.jpg' %}"
-                                                class="img-fluid" alt="">
-                                            <span class="icon-view">
-                                                <strong><i class="fa fa-eye"></i></strong>
-                                            </span>
-                                        </a>
-                                        <div class="countdown-timer">
-                                            <div class="countdown h4" data-date-time="10/10/2025 12:00"
-                                                data-labels="{&quot;label-day&quot;: &quot;روز&quot;, &quot;label-hour&quot;: &quot;ساعت&quot;, &quot;label-minute&quot;: &quot;دقیقه&quot;, &quot;label-second&quot;: &quot;ثانیه&quot;}">
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">1765</div>
-                                                    <div class="countdown-label">روز</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">16</div>
-                                                    <div class="countdown-label">ساعت</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">25</div>
-                                                    <div class="countdown-label">دقیقه</div>
-                                                </div>
-                                                <div class="countdown-item">
-                                                    <div class="countdown-value">07</div>
-                                                    <div class="countdown-label">ثانیه</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <h2 class="post-title pt-4">
-                                            <a href="#">
-                                                آب میوه گیری پارس خزر مدل Avocado
-                                            </a>
-                                        </h2>
-                                        <div class="price">
-                                            <del><span>۷,۵۰۰,۰۰۰<span>تومان</span></span></del>
-                                            <ins><span>۶,۰۰۰,۰۰۰<span>تومان</span></span></ins>
-                                        </div>
-                                        <div class="actions">
-                                            <ul>
-                                                <li class="action-item like">
-                                                    <button class="btn btn-light add-product-wishes" type="submit">
-                                                        <i class="fa fa-heart-o"></i>
-                                                    </button>
-                                                </li>
-                                                <li class="action-item compare">
-                                                    <button class="btn btn-light btn-compare" type="submit">
-                                                        <i class="fa fa-random"></i>
-                                                    </button>
-                                                </li>
-                                                <li class="action-item add-to-cart">
-                                                    <button class="btn btn-light btn-add-to-cart" type="submit">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    {% show_latest_products %}
 <!--slider-amazing------------------------->
 <div class="container-main">
     <div class="d-block">
@@ -553,8 +225,7 @@
                                 style="transform: translate3d(0px, 0px, 0px); transition: all 0s ease 0s; width: 2234px;">
                                 <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
                                     <div class="item">
-                                        <a href="#" class="d-block hover-img-link" data-toggle="modal"
-                                            data-target="#exampleModal">
+                                        <a href="#" class="d-block hover-img-link" data-toggle="modal" data-target="#exampleModal" data-id="{{ item.id }}" data-title="{{ item.title }}" data-price="{{ item.price|intcomma }}" data-image="{{ item.image.url }}" data-description="{{ item.description }}">
                                             <img src="{% static 'images/slider-product/Stove-lopez.jpg' %}"
                                                 class="img-fluid" alt="">
                                             <span class="icon-view">
@@ -630,8 +301,7 @@
                                 </div>
                                 <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
                                     <div class="item">
-                                        <a href="#" class="d-block hover-img-link" data-toggle="modal"
-                                            data-target="#exampleModal">
+                                        <a href="#" class="d-block hover-img-link" data-toggle="modal"data-toggle="modal" data-target="#exampleModal" data-id="{{ item.id }}" data-title="{{ item.title }}" data-price="{{ item.price|intcomma }}" data-image="{{ item.image.url }}" data-description="{{ item.description }}"data-target="#exampleModal">
                                             <img src="{% static 'images/slider-product/ECM2013.jpg' %}"
                                                 class="img-fluid" alt="">
                                             <span class="icon-view">
@@ -670,8 +340,7 @@
                                 </div>
                                 <div class="owl-item active" style="width: 309.083px; margin-left: 10px;">
                                     <div class="item">
-                                        <a href="#" class="d-block hover-img-link" data-toggle="modal"
-                                            data-target="#exampleModal">
+                                        <a href="#" class="d-block hover-img-link" data-toggle="modal" data-toggle="modal" data-target="#exampleModal" data-id="{{ item.id }}" data-title="{{ item.title }}" data-price="{{ item.price|intcomma }}" data-image="{{ item.image.url }}" data-description="{{ item.description }}">
                                             <img src="{% static 'images/slider-product/DNR 290T-366T.jpg' %}"
                                                 class="img-fluid" alt="">
                                             <span class="icon-view">
@@ -710,8 +379,7 @@
                                 </div>
                                 <div class="owl-item" style="width: 309.083px; margin-left: 10px;">
                                     <div class="item">
-                                        <a href="#" class="d-block hover-img-link" data-toggle="modal"
-                                            data-target="#exampleModal">
+                                        <a href="#" class="d-block hover-img-link" data-toggle="modal" data-toggle="modal" data-target="#exampleModal" data-id="{{ item.id }}" data-title="{{ item.title }}" data-price="{{ item.price|intcomma }}" data-image="{{ item.image.url }}" data-description="{{ item.description }}">
                                             <img src="{% static 'images/slider-product/Avocado.jpg' %}"
                                                 class="img-fluid" alt="">
                                             <span class="icon-view">
@@ -834,136 +502,7 @@
                     </div>
                 </div>
                 <!-- brand----------------------------------------->
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="col-lg-6 pr">
-                                    <div class="thum-img">
-                                        <div class="widget widget-product card mb-0">
-                                            <div
-                                                class="product-carousel-more owl-carousel owl-theme owl-rtl owl-loaded owl-drag">
-                                                <div class="owl-stage-outer">
-                                                    <div class="owl-stage"
-                                                        style="transform: translate3d(1652px, 0px, 0px); transition: all 0.25s ease 0s; width: 2065px;">
-                                                        <div class="owl-item" style="width: 403px; margin-left: 10px;">
-                                                            <div class="item">
-                                                                <a href="#" class="d-block hover-img-link"
-                                                                    data-toggle="modal" data-target="#exampleModal">
-                                                                    <div class="zoom-box">
-                                                                        <img src="{% static 'images/slider-product/computer-appel.jpg' %}"
-                                                                            width="200" height="150" />
-                                                                        <div class="discount-m">
-                                                                            <span>10%</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="owl-item" style="width: 403px; margin-left: 10px;">
-                                                            <div class="item">
-                                                                <a href="#" class="d-block hover-img-link"
-                                                                    data-toggle="modal" data-target="#exampleModal">
-                                                                    <div class="zoom-box">
-                                                                        <img src="{% static 'images/slider-product/computer-appel.jpg' %}"
-                                                                            width="200" height="150" />
-                                                                        <div class="discount-m">
-                                                                            <span>10%</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="owl-item" style="width: 403px; margin-left: 10px;">
-                                                            <div class="item">
-                                                                <a href="#" class="d-block hover-img-link"
-                                                                    data-toggle="modal" data-target="#exampleModal">
-                                                                    <div class="zoom-box">
-                                                                        <img src="{% static 'images/slider-product/computer-appel.jpg' %}"
-                                                                            width="200" height="150" />
-                                                                        <div class="discount-m">
-                                                                            <span>10%</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="owl-item" style="width: 403px; margin-left: 10px;">
-                                                            <div class="item">
-                                                                <a href="#" class="d-block hover-img-link"
-                                                                    data-toggle="modal" data-target="#exampleModal">
-                                                                    <div class="zoom-box">
-                                                                        <img src="{% static 'images/slider-product/computer-appel.jpg' %}"
-                                                                            width="200" height="150" />
-                                                                        <div class="discount-m">
-                                                                            <span>10%</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="owl-item active"
-                                                            style="width: 403px; margin-left: 10px;">
-                                                            <div class="item">
-                                                                <a href="#" class="d-block hover-img-link"
-                                                                    data-toggle="modal" data-target="#exampleModal">
-                                                                    <div class="zoom-box">
-                                                                        <img src="{% static 'images/slider-product/computer-appel.jpg' %}"
-                                                                            width="200" height="150" />
-                                                                        <div class="discount-m">
-                                                                            <span>10%</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 pr">
-                                    <div class="product-box-modal-title">
-                                        <h2 class="post-title">
-                                            <a href="#">
-                                                کامپیوتر همه کاره 27 اینچی اپل مدل iMac CTO - A 2019 با صفحه نمایش
-                                                رتینا 5K
-                                            </a>
-                                        </h2>
-                                    </div>
-                                    <div class="small-gutters align-items-stretch mb-4">
-                                        <div class="col-lg-12 pr-0 pl-0 pr">
-                                            <div class="product-box-modal_price mt-12 mt-auto">
-                                                <div class="price">
-                                                    <del><span>۳,۵۰۰,۰۰۰<span>تومان</span></span></del>
-                                                    <ins><span>۲,۰۰۰,۰۰۰<span>تومان</span></span></ins>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="small-gutters">
-                                            <div class="col-lg-12 mb-8 pr-0 pl-0 pr mt-3">
-                                                <div class="product-box_action">
-                                                    <button class="btn btn-gradient-primary add-to-cart"
-                                                        type="submit">افزودن به سبد</button>
-                                                    <a href="#" class="btn btn-outline-dark btn-block">مشاهده
-                                                        جزئیات</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </div>
@@ -971,6 +510,28 @@
 {% endblock content %}
 
 {% block extra_js %}
+<script>
+
+
+$(document).ready(function() {
+    // وقتی روی هر لینک محصول کلیک می‌کنید
+    $('a[data-toggle="modal"]').on('click', function(e) {
+        var title = $(this).data('title');
+        var price = $(this).data('price');
+        var image = $(this).data('image');
+        var description = $(this).data('description');
+
+        // اطلاعات را به مودال منتقل می‌کنیم
+        $('#product-title').text(title); // عنوان محصول
+        $('#product-price').html('<span>' + price + ' تومان</span>'); // قیمت محصول
+        $('#product-image').attr('src', image); // تصویر محصول
+        $('#product-description').text(description); // توضیحات محصول
+    });
+});
+
+
+
+</script>
 {% endblock extra_js %}
 
 
