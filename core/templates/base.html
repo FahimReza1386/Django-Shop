@@ -802,7 +802,7 @@
                                         <span class="price-cart">25,000,000
                                             <span>تومان</span>
                                         </span>
-                                        <span class="count-cart">2</span>
+                                        <span class="count-cart">{{ cart.get_total_quantity }}</span>
                                     </a>
                                     <div class="widget-shopping-cart">
                                         <div class="widget-shopping-cart-content">
@@ -1323,6 +1323,7 @@
 
 
 {% block extra_js %}
+
 {% endblock extra_js %}
 
 {% block extra_js_no_compress %}
