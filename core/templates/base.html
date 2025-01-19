@@ -1,4 +1,6 @@
 {% load static %}
+{% load humanize %}
+
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
@@ -41,7 +43,7 @@
                     <div class="header-right">
                         <div class="col-lg-3 pr">
                             <div class="header-logo row text-right">
-                                <a href="#">
+                                <a href="{% url 'website:index' %}">
                                     <img src="{% static 'images/logo.png' %}" alt="کالامارکت">
                                 </a>
                             </div>
@@ -162,7 +164,7 @@
                                     </div>
                                     {% else %}
                                     <a class="title-account" href="{% url 'accounts:login' %}">ورود</span>
-                                    {% endif %}
+                                        {% endif %}
 
                                 </div>
                             </div>
@@ -352,7 +354,8 @@
                             </li>
                             <li id="nav-menu-item" class="menu-item nav-overlay" data-id="190">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/makeup.png' %}" alt="menu" width="22px">
+                                    <img src="{% static 'images/menu-main/category/makeup.png' %}" alt="menu"
+                                        width="22px">
                                     آرایشی و بهداشتی
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -532,19 +535,22 @@
                             </li>
                             <li id="nav-menu-item" class="menu-item">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/print.png' %}" alt="menu" width="22px">
+                                    <img src="{% static 'images/menu-main/category/print.png' %}" alt="menu"
+                                        width="22px">
                                     ابزار و اداری
                                 </a>
                             </li>
                             <li id="nav-menu-item" class="menu-item">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/suit.png' %}" alt="menu" width="22px">
+                                    <img src="{% static 'images/menu-main/category/suit.png' %}" alt="menu"
+                                        width="22px">
                                     مد و پوشاک
                                 </a>
                             </li>
                             <li id="nav-menu-item" class="menu-item nav-overlay">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/home.png' %}" alt="menu" width="22px">
+                                    <img src="{% static 'images/menu-main/category/home.png' %}" alt="menu"
+                                        width="22px">
                                     خانه و آشپزخانه
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -726,7 +732,8 @@
                             </li>
                             <li id="nav-menu-item" class="menu-item nav-overlay">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/edit.png' %}" alt="menu" width="22px">
+                                    <img src="{% static 'images/menu-main/category/edit.png' %}" alt="menu"
+                                        width="22px">
                                     لوازم تحریر و هنر
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -788,20 +795,19 @@
                             </li>
                             <li id="nav-menu-item" class="menu-item">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/child.png' %}" alt="menu" width="22px">
+                                    <img src="{% static 'images/menu-main/category/child.png' %}" alt="menu"
+                                        width="22px">
                                     کودک و نوزاد
                                 </a>
                             </li>
                             <li class="divider-space-card">
-                                <div class="header-cart-basket">
-                                    <a href="#" class="cart-basket-box">
+                                <div class="header-cart-basket" dir="rtl">
+                                    <a href="{% url 'cart:session-cart-summary' %}" class="cart-basket-box">
                                         <span class="icon-cart">
                                             <i class="mdi mdi-shopping"></i>
                                         </span>
                                         <span class="title-cart">سبد خرید</span>
-                                        <span class="price-cart">25,000,000
-                                            <span>تومان</span>
-                                        </span>
+                                        <span class="price-cart"> {{ total_price|intcomma }} <span>تومان</span></span> 
                                         <span class="count-cart">{{ cart.get_total_quantity }}</span>
                                     </a>
                                     <div class="widget-shopping-cart">
@@ -816,36 +822,37 @@
                                                                         <i class="mdi mdi-close"></i>
                                                                     </a>
                                                                     <a href="#" class="mini-cart-item-image d-block">
-                                                                        <img src="{% static 'images/menu-main/img-card.jpg' %}">
-                                                                        </a>
-                                                                        <span class="product-name-card">لپ تاپ چووی
-                                                                            الترابوک 14
-                                                                            اینچ پرو</span>
-                                                                        <div class="variation">
-                                                                            <span class="variation-n">فروشنده :
-                                                                            </span>
-                                                                            <p class="mb-0">کالامارکت </p>
-                                                                        </div>
-                                                                        <div class="header-basket-list-item-color-badge">
-                                                                            رنگ:
-                                                                            <span style="background: #000"></span>
-                                                                        </div>
-                                                                        <div class="quantity">
-                                                                            <span class="quantity-Price-amount">
-                                                                                15,000,000
-                                                                                <span>تومان</span>
-                                                                            </span>
-                                                                        </div>
+                                                                        <img
+                                                                            src="{% static 'images/menu-main/img-card.jpg' %}">
+                                                                    </a>
+                                                                    <span class="product-name-card">لپ تاپ چووی
+                                                                        الترابوک 14
+                                                                        اینچ پرو</span>
+                                                                    <div class="variation">
+                                                                        <span class="variation-n">فروشنده :
+                                                                        </span>
+                                                                        <p class="mb-0">کالامارکت </p>
                                                                     </div>
-                                                                </li>
-                                                                <li class="mini-cart-item">
-                                                                    <div class="mini-cart-item-content">
-                                                                        <a href="#" class="mini-cart-item-close">
-                                                                            <i class="mdi mdi-close"></i>
-                                                                        </a>
-                                                                        <a href="#" class="mini-cart-item-image d-block">
-                                                                            <img
-                                                                                src="{% static 'images/menu-main/img-card-2.jpg' %}">
+                                                                    <div class="header-basket-list-item-color-badge">
+                                                                        رنگ:
+                                                                        <span style="background: #000"></span>
+                                                                    </div>
+                                                                    <div class="quantity">
+                                                                        <span class="quantity-Price-amount">
+                                                                            15,000,000
+                                                                            <span>تومان</span>
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                            <li class="mini-cart-item">
+                                                                <div class="mini-cart-item-content">
+                                                                    <a href="#" class="mini-cart-item-close">
+                                                                        <i class="mdi mdi-close"></i>
+                                                                    </a>
+                                                                    <a href="#" class="mini-cart-item-image d-block">
+                                                                        <img
+                                                                            src="{% static 'images/menu-main/img-card-2.jpg' %}">
                                                                     </a>
                                                                     <span class="product-name-card">هواوای میت
                                                                         بوک X پرو
@@ -909,8 +916,8 @@
                         <a href="#" class="collapsed" type="button" data-toggle="collapse" data-target="#collapseOne"
                             aria-expanded="false" aria-controls="collapseOne"><i class="mdi mdi-chevron-down"></i>کالای
                             دیجیتال</a>
-                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample"
-                            style="">
+                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                            data-parent="#accordionExample" style="">
                             <ul>
                                 <li class="has-sub"><a href="#" class="category-level-2">لوازم جانبی گوشی</a>
                                     <ul>
@@ -944,8 +951,8 @@
                     <li><a href="#" class="collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
                             aria-expanded="false" aria-controls="collapseTwo"><i class="mdi mdi-chevron-down"></i>آرایشی
                             و بهداشتی</a>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample"
-                            style="">
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+                            data-parent="#accordionExample" style="">
                             <ul>
                                 <li class="has-sub"><a href="#" class="category-level-2">لوازم جانبی گوشی</a>
                                     <ul>
@@ -1064,7 +1071,7 @@
             <!--    responsive-megamenu-mobile----------------->
         </div>
     </header>
-    
+
     {% block content %}
     {% endblock content %}
 
@@ -1301,35 +1308,57 @@
 
 
     <!-- file js---------------------------------------------------->
-<script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
-<script src="{% static 'js/vendor/bootstrap.js' %}"></script>
-<!-- plugin----------------------------------------------------->
-<script src="{% static 'js/vendor/owl.carousel.min.js' %}"></script>
-<script src="{% static 'js/vendor/jquery.countdown.js' %}"></script>
-<script src="{% static 'js/vendor/jquery.nice-select.min.js' %}"></script>
-<script src="{% static 'js/vendor/jquery.jqZoom.js' %}"></script>
-<!-- main js---------------------------------------------------->
-<script src="{% static 'js/main.js' %}"></script>
-<!-- The Toastify Config js -->
-<script src="{% static 'toastify/toastify-es.js' %}"></script>
-<script src="{% static 'toastify/toastify.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.js' %}"></script>
+    <!-- plugin----------------------------------------------------->
+    <script src="{% static 'js/vendor/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.countdown.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.jqZoom.js' %}"></script>
+    <!-- main js---------------------------------------------------->
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- The Toastify Config js -->
+    <script src="{% static 'toastify/toastify-es.js' %}"></script>
+    <script src="{% static 'toastify/toastify.js' %}"></script>
 
 
-<script src="{% static 'js/vendor/ResizeSensor.min.js' %}"></script>
-<script src="{% static 'js/vendor/theia-sticky-sidebar.min.js' %}"></script>
-<script src="{% static 'js/vendor/wNumb.js' %}"></script>
-<script src="{% static 'js/vendor/nouislider.min.js' %}"></script>
+    <script src="{% static 'js/vendor/ResizeSensor.min.js' %}"></script>
+    <script src="{% static 'js/vendor/theia-sticky-sidebar.min.js' %}"></script>
+    <script src="{% static 'js/vendor/wNumb.js' %}"></script>
+    <script src="{% static 'js/vendor/nouislider.min.js' %}"></script>
 
 
+    <script>
+        function AddProductToCart(product_id,qty){
+            $.ajax({
+                type: "POST",
+                url: "{% url 'cart:session-add-product' %}",
+                data: {
+                  csrfmiddlewaretoken:'{{ csrf_token }}',
+                  product_id:product_id,
+                  quantity:qty,
+                },
+                success: function(response){
+                    $("#count-cart").html(response.total_qty)
+                    window.location.reload()
+                },
+                error: function (err,errmsg,xhr) {
+                  console.log(err)
+                }
+            });
+    
+        }
+    </script>
 
-{% block extra_js %}
+    {% block extra_js %}
 
-{% endblock extra_js %}
+    {% endblock extra_js %}
 
-{% block extra_js_no_compress %}
-{% endblock extra_js_no_compress %}
+    {% block extra_js_no_compress %}
+    {% endblock extra_js_no_compress %}
 
-{% include 'messages.html' %}
+    {% include 'messages.html' %}
 
 </body>
+
 </html>

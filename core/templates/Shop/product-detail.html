@@ -457,16 +457,16 @@
                                                 <div class="product-seller-row guarantee">
                                                     <span class="title mt-3"> تعداد:</span>
                                                     <div class="quantity pl">
-                                                        <input type="number" min="1" max="100" step="1" value="1">
+                                                        <input class="qty-cart" type="number" min="1" max="10" step="1" value="1">
                                                         <div class="quantity-nav">
-                                                            <div class="quantity-button quantity-up">+</div>
+                                                            <div class="quantity-button quantity-up" >+</div>
                                                             <div class="quantity-button quantity-down">-</div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="product-seller-row add-to-cart">
                                                     
-                                                    <button onclick="AddProductToCart('{{ object.id }}')">
+                                                    <button onclick="AddProductToCart('{{ object.id }}',$('.qty-cart').val())">
                                                         <a href="#" class="btn-add-to-cart btn btn-primary">
                                                             <span class="btn-add-to-cart-txt">افزودن به سبد خرید</span>
                                                         </a>
@@ -1247,26 +1247,8 @@
 {% endblock %}
 
 {% block extra_js %}
-<script>
-    function AddProductToCart(product_id){
-        $.ajax({
-            type: "POST",
-            url: "{% url 'cart:session-add-product' %}",
-            data: {
-              csrfmiddlewaretoken:'{{ csrf_token }}',
-              product_id:product_id,
-            },
-            success: function(response){
-                $("#count-cart").html(response.total_qty)
-                window.location.reload()
-            },
-            error: function (err,errmsg,xhr) {
-              console.log(err)
-            }
-        });
 
-    }
-</script>
+
 {% endblock %}
 
 {% block extra_js_no_compress %}
