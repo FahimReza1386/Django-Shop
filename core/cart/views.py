@@ -9,9 +9,9 @@ from django.http import JsonResponse
 class SessionAddProductView(CreateView):
     
     def post(self, request, *args, **kwargs):
-        cart = CartSession(session=self.request.session)
-        product_id = self.request.POST.get("product_id")
-        qty = self.request.POST.get("quantity")
+        cart = CartSession(session=request.session)
+        product_id = request.POST.get("product_id")
+        qty = request.POST.get("quantity")
         if product_id and qty:
             cart.add_product(product_id, qty)
 
@@ -28,3 +28,15 @@ class SessionCartSummaryView(TemplateView):
         context["cart_items"] = cart.get_cart_item()
 
         return context
+
+
+class SessionUpdateProductQuantityView(UpdateView):
+    def post(self, request, *args, **kwargs):
+        cart = CartSession(session=request.session)
+        product_id = request.POST.get("product_id")
+        qty = request.POST.get("quantity")
+        if product_id and qty:
+            cart.update_product_qty(product_id, qty)
+
+        return JsonResponse({"cart":cart.get_cart_dict(), "total_quantity":cart.get_total_quantity()})
+    

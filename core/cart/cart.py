@@ -30,6 +30,19 @@ class CartSession:
         
         self.save()
 
+    def update_product_qty(self, product_id, qty):
+        quantity = int(qty)
+        for item in self._cart["items"]:
+            if product_id == item["product_id"]:
+                item["quantity"] = quantity
+                break
+        else:
+            return True
+
+        self.save()
+
+        
+
     
     def get_total_payment_price(self):
         return self.total_payment_price

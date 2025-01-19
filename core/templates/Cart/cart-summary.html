@@ -87,11 +87,14 @@
                                                     </span>
                                                 </td>
                                                 <td class="product-cart-quantity">
-                                                    <div class="required-number before">
-                                                        <div class="quantity">
-                                                            <input type="number" min="1" max="100" step="1" value="{{ item.quantity }}">
-                                                        </div>
-                                                    </div>
+                                                   
+                                                    <select class=" form-select" onchange="UpdateProductQuantity('{{ item.product_id }}', this.value)">
+                                                        {% with ''|center:10 as range %}
+                                                           {% for _ in range %} 
+                                                            <option value="{{ forloop.counter }}" {% if forloop.counter == item.quantity %} selected  {% endif %} >{{ forloop.counter }}</option>
+                                                           {% endfor %}
+                                                        {% endwith %}
+                                                      </select> 
                                                 </td>
                                                 <td class="product-cart-Total">
                                                     <span class="amount">{{ item.total_price|intcomma }}
@@ -185,6 +188,27 @@
 
 
 {% block extra_js %}
+<script>
+        function UpdateProductQuantity(product_id,qty){
+            $.ajax({
+                type: "POST",
+                url: "{% url 'cart:session-update-product-quantity' %}",
+                data: {
+                  csrfmiddlewaretoken:'{{ csrf_token }}',
+                  product_id:product_id,
+                  quantity:qty,
+                },
+                success: function(response){
+                    window.location.reload()
+                },
+                error: function (err,errmsg,xhr) {
+                  console.log(err)
+                }
+            });
+    
+        }
+
+</script>
 {% endblock %}
 
 
