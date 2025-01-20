@@ -41,8 +41,16 @@ class CartSession:
 
         self.save()
 
-        
 
+    def remove_product(self, product_id):
+        for item in self._cart["items"]:
+            if product_id == item["product_id"]:
+                self._cart["items"].remove(item)
+                break
+        else:
+            return
+
+        self.save()
     
     def get_total_payment_price(self):
         return self.total_payment_price

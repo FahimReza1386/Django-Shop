@@ -55,9 +55,11 @@
                                                             <img src="{{ item.product_obj.image.url }}">
                                                         </a>
                                                         <div class="product-remove">
-                                                            <a href="#" class="remove">
-                                                                <i class="mdi mdi-close"></i>
-                                                            </a>
+                                                      
+                                                            <button class="btn btn-icon" onclick="RemoveProduct('{{ item.product_id }}')">
+                                                                 <i class="mdi mdi-close"></i>
+
+                                                            </button>
                                                         </div>
                                                     </div>
                                                     <div class="product-title">
@@ -197,6 +199,23 @@
                   csrfmiddlewaretoken:'{{ csrf_token }}',
                   product_id:product_id,
                   quantity:qty,
+                },
+                success: function(response){
+                    window.location.reload()
+                },
+                error: function (err,errmsg,xhr) {
+                  console.log(err)
+                }
+            });
+    
+        }
+        function RemoveProduct(product_id){
+            $.ajax({
+                type: "POST",
+                url: "{% url 'cart:session-remove-product' %}",
+                data: {
+                  csrfmiddlewaretoken:'{{ csrf_token }}',
+                  product_id:product_id,
                 },
                 success: function(response){
                     window.location.reload()
