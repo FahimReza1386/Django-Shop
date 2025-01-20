@@ -54,6 +54,14 @@ class CartSession:
     
     def get_total_payment_price(self):
         return self.total_payment_price
+    
+    def clear(self):
+        self.session["cart"] = {
+            "items": []
+        }
+
+        self.save()
+
 
     
     def get_total_quantity(self):

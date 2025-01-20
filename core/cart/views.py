@@ -50,3 +50,11 @@ class SessionRemoveProductView(DeleteView):
             cart.remove_product(product_id)
 
         return JsonResponse({"cart":cart.get_cart_dict(), "total_quantity":cart.get_total_quantity()})
+
+
+class SessionRemoveAllCartView(DeleteView):
+
+    def post(self, request, *args, **kwargs):
+        cart = CartSession(session=request.session)
+        cart.clear()
+        return JsonResponse({"cart":cart.get_cart_dict(), "total_quantity":cart.get_total_quantity()})

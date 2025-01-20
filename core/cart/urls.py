@@ -9,4 +9,5 @@ urlpatterns = [
     path("session/cart-summary/", views.SessionCartSummaryView.as_view(), name="session-cart-summary"),
     path("session/update-product-quantity/", views.SessionUpdateProductQuantityView.as_view(), name="session-update-product-quantity"),
     path("session/remove-product/", views.SessionRemoveProductView.as_view(), name="session-remove-product"),
+    path("session/remove-all-cart/", views.SessionRemoveAllCartView.as_view(), name="session-remove-all-cart"),
 ]

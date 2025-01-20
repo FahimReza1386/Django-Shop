@@ -32,6 +32,8 @@
                         </ol>
                     </nav>
                 </div>
+                <button class="btn btn-danger" style="float: left;margin: 1rem 10rem;" onclick="RemoveAllProduct()">حذف کل محصولات</button>
+
                 <section class="cart-home">
                     <div class="post-item-cart d-block order-2">
                         <div class="content-page">
@@ -51,7 +53,7 @@
                                             <tr>
                                                 <th scope="row" class="product-cart-name">
                                                     <div class="product-thumbnail-img">
-                                                        <a href="#">
+                                                        <a >
                                                             <img src="{{ item.product_obj.image.url }}">
                                                         </a>
                                                         <div class="product-remove">
@@ -227,7 +229,33 @@
     
         }
 
+      
+
 </script>
+<script>
+    function RemoveAllProduct() {
+      var userConfirmed = window.confirm("آیا از حذف تمامی محصولات سبد خرید خود اطمینان دارید؟");
+      if(userConfirmed != false){
+        $.ajax({
+        type: "POST",
+        url: "{% url 'cart:session-remove-all-cart' %}",
+        data: {
+          csrfmiddlewaretoken: '{{ csrf_token }}',
+        },
+        success: function(response) {
+          window.location.reload();
+        },
+        error: function(err, errmsg, xhr) {
+          console.log(err);
+        }
+      });
+      }else{
+        window.location.reload();
+      }
+      
+    }
+
+  </script>
 {% endblock %}
 
 
