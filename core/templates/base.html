@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="{% static 'css/vendor/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/vendor/nice-select.css' %}">
     <link rel="stylesheet" href="{% static 'css/vendor/jquery.jqZoom.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/noUISlider.min.css' %}   ">
+    <link rel="stylesheet" href="{% static 'cssvendor/lightgallery.css' %}  ">
     <!-- main-style---------------------------------->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
@@ -24,6 +26,8 @@
     <link rel="stylesheet" href="{% static 'toastify/toastify.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/vendor/noUISlider.min.css' %}">
+
+
 
 
     {% block extra_css %}
@@ -1351,7 +1355,17 @@
     </script>
 
     {% block extra_js %}
-
+    <!-- file js---------------------------------------------------->
+    <script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/vendor/bootstrap.js' %}"></script>
+    <!-- plugin----------------------------------------------------->
+    <script src="{% static 'js/vendor/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.countdown.js' %}"></script>
+    <script src="{% static 'js/vendor/lightgallery-all.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.ez-plus.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery.nice-select.min.js' %}"></script>
+    <!-- main js---------------------------------------------------->
+    <script src="{% static 'js/main.js' %}"></script>
     {% endblock extra_js %}
 
     {% block extra_js_no_compress %}

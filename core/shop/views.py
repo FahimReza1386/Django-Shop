@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from .models import ProductModel, ProductCategoryModel, ProductStatusType
+from .models import ProductModel, ProductCategoryModel, ProductStatusType, ProductImageModel
 from django.core.exceptions import FieldError
 from django.contrib import messages
 
@@ -48,3 +48,8 @@ class ShopProductGridView(ListView):
 class ShopProductDetailView(DetailView):
     template_name = "Shop/product-detail.html"
     queryset=ProductModel.objects.filter(status=ProductStatusType.publish.value)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["extra_img"] = ProductImageModel.objects.filter(product__slug=self.kwargs["slug"])
+        return context

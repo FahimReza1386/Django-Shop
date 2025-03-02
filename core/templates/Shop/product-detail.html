@@ -197,11 +197,20 @@
                                                                 <div class="modal-content">
                                                                     <div class="modal-body">
                                                                         <div id="custom-events">
+                                                                          
+                                                                            {% for image in extra_img%}
+                                                                                <a
+                                                                                href="{% static 'images/page-single-product/product-img/product-img-note10.jpg' %}">
+                                                                                <img
+                                                                                    src="{{ image.file.url }}" />
+                                                                                </a>    
+                                                                            {% endfor %}
                                                                             <a
                                                                                 href="{% static 'images/page-single-product/product-img/product-img-note10.jpg' %}">
                                                                                 <img
                                                                                     src="{{ object.image.url }}" />
                                                                             </a>
+                                                                            
                                                                             <a
                                                                                 href="{% static 'images/page-single-product/product-img/product-img-note10-big-1.jpg' %}">
                                                                                 <img
@@ -258,48 +267,20 @@
                                                 <a href="#">
                                                     <img class="zoom-img" id="img-product-zoom"
                                                         src="{{ object.image.url }}"
-                                                        data-zoom-image="{% static 'images/page-single-product/product-img/product-img-note10.jpg' %}"
+                                                        data-zoom-image="{{ object.image.url }}"
                                                         width="411" />
                                                     <div id="gallery_01f" style="width:420px;float:right;">
                                                 </a>
                                                 <ul class="gallery-items owl-carousel owl-theme" id="gallery-slider">
-                                                    <li class="item">
-                                                        <a href="#" class="elevatezoom-gallery active" data-update=""
-                                                            data-image="{% static 'images/page-single-product/product-img/product-img-note10-big-1.jpg' %}"
-                                                            data-zoom-image="{% static 'images/page-single-product/product-img/product-img-note10-big-1.jpg' %}">
-                                                            <img src="{{ object.image.url }}"
-                                                                width="100" /></a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" class="elevatezoom-gallery active" data-update=""
-                                                            data-image="{% static 'images/page-single-product/product-img/product-img-note10-big-2.jpg' %}"
-                                                            data-zoom-image="{% static 'images/page-single-product/product-img/product-img-note10-big-2.jpg' %}">
-                                                            <img src="{{ object.image.url }}"
-                                                                width="100" /></a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" class="elevatezoom-gallery"
-                                                            data-image="{% static 'images/page-single-product/product-img/product-img-note10-big-3.jpg' %}"
-                                                            data-zoom-image="{% static 'images/page-single-product/product-img/product-img-note10-big-3.jpg' %}">
-                                                            <img src="{{ object.image.url }}"
-                                                                width="100" />
-                                                        </a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" class="elevatezoom-gallery"
-                                                            data-image="{% static 'images/page-single-product/product-img/product-img-note10-big-4.jpg' %}"
-                                                            data-zoom-image="{% static 'images/page-single-product/product-img/product-img-note10-big-4.jpg' %}">
-                                                            <img src="{{ object.image.url }}"
-                                                                width="100" /></a>
-                                                    </li>
-                                                    <li class="item">
-                                                        <a href="#" class="elevatezoom-gallery"
-                                                            data-image="{% static 'images/page-single-product/product-img/product-img-note10-big-5.jpg' %}"
-                                                            data-zoom-image="{% static 'images/page-single-product/product-img/product-img-note10-big-5.jpg' %}">
-                                                            <img src="{{ object.image.url }}"
-                                                                width="100" />
-                                                        </a>
-                                                    </li>
+                                                    {% for image in extra_img %}
+                                                        <li class="item ">
+                                                            <a href="#" class="elevatezoom-gallery" data-update=""
+                                                                data-image="{{ image.file.url }}"
+                                                                data-zoom-image="{{ image.file.url }}">
+                                                                <img src="{{ image.file.url }}"
+                                                                    width="100" /></a>
+                                                        </li>
+                                                    {% endfor %}
                                                 </ul>
                                             </div>
                                         </div>
@@ -631,7 +612,10 @@
                                         <div class="content-expert-text">
                                             <p style="text-align:right">{{ object.description }}</p>
                                             <div class="content-expert-img">
-                                                <img src="{{ object.image.url }}">
+                                                {% for img in extra_img%}
+                                                <img src="{{ img.file.url }}">
+                                                {% endfor %}
+
                                             </div>
                                         </div>
                                     </section>
