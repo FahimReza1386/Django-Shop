@@ -79,7 +79,7 @@ class User(AbstractBaseUser,PermissionsMixin):
 
 
 class Profile(models.Model):
-    user = models.OneToOneField("User", on_delete=models.CASCADE)
+    user = models.OneToOneField("User", on_delete=models.CASCADE, related_name="user_profile")
     first_name = models.CharField(max_length=22)
     last_name = models.CharField(max_length=22)
     phone_number = models.CharField(max_length=12, validators=[validate_iranian_phone_number])

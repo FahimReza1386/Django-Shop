@@ -1,5 +1,4 @@
 {% load static %}
-{% load humanize %}
 
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
@@ -7,39 +6,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock title %}</title>
+    <title>پروفایل</title>
     <!-- font---------------------------------------->
     <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/vendor/materialdesignicons.css' %}">
-
     <!-- plugin-------------------------------------->
     <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/vendor/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/vendor/noUISlider.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/vendor/nice-select.css' %}">
-    <link rel="stylesheet" href="{% static 'css/vendor/jquery.jqZoom.css' %}">
-    <link rel="stylesheet" href="{% static 'css/vendor/noUISlider.min.css' %}   ">
-    <link rel="stylesheet" href="{% static 'cssvendor/lightgallery.css' %}  ">
     <!-- main-style---------------------------------->
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
-    <!-- The Toastify Config -->
-    <link rel="stylesheet" href="{% static 'toastify/toastify.css' %}">
-
-    <link rel="stylesheet" href="{% static 'css/vendor/noUISlider.min.css' %}">
-
-
-
-
-    {% block extra_css %}
-    {% endblock extra_css %}
-
-
-    {% block extra_css_no_compress %}
-    {% endblock extra_css_no_compress %}
-
 </head>
 
 <body>
+    <!-- header-------------------------------->
     <header class="header-main">
         <div class="d-block">
             <section class="h-main-row">
@@ -47,7 +29,7 @@
                     <div class="header-right">
                         <div class="col-lg-3 pr">
                             <div class="header-logo row text-right">
-                                <a href="{% url 'website:index' %}">
+                                <a href="#">
                                     <img src="{% static 'images/logo.png' %}" alt="کالامارکت">
                                 </a>
                             </div>
@@ -55,8 +37,8 @@
                         <div class="col-lg-8 pr">
                             <div class="header-search row text-right">
                                 <div class="header-search-box">
-                                    <form class="form-search">
-                                        <input type="search" class="header-search-input" name="q"
+                                    <form action="#" class="form-search">
+                                        <input type="search" class="header-search-input" name="search-input"
                                             placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
                                         <div class="action-btns">
                                             <button class="btn btn-search" type="submit">
@@ -143,7 +125,6 @@
                         <div class="header-account text-left">
                             <div class="d-block">
                                 <div class="account-box">
-                                    {% if user.is_authenticated %}
                                     <div class="nav-account d-block pl">
                                         <span class="icon-account">
                                             <img src="{% static 'images/man.png' %}" class="avator">
@@ -152,7 +133,7 @@
                                         <div class="dropdown-menu">
                                             <ul class="account-uls mb-0">
                                                 <li class="account-item">
-                                                    <a href="{% url 'dashboard:home' %}" class="account-link">پنل کاربری</a>
+                                                    <a href="#" class="account-link">پنل کاربری</a>
                                                 </li>
                                                 <li class="account-item">
                                                     <a href="#" class="account-link">سفارشات من</a>
@@ -161,15 +142,11 @@
                                                     <a href="#" class="account-link">تنظیمات</a>
                                                 </li>
                                                 <li class="account-item">
-                                                    <a href="{% url 'accounts:logout' %}" class="account-link">خروج</a>
+                                                    <a href="#" class="account-link">خروج</a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    {% else %}
-                                    <a class="title-account" href="{% url 'accounts:login' %}">ورود</span>
-                                        {% endif %}
-
                                 </div>
                             </div>
                         </div>
@@ -182,8 +159,7 @@
                         <ul class="menu-ul mega-menu-level-one">
                             <li id="nav-menu-item" class="menu-item nav-overlay">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/smartphone.png' %}" alt="menu"
-                                        width="22px">
+                                    <img src="{% static 'images/menu-main/category/smartphone.png' %}" alt="menu" width="22px">
                                     کالای دیجیتال
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -358,8 +334,7 @@
                             </li>
                             <li id="nav-menu-item" class="menu-item nav-overlay" data-id="190">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/makeup.png' %}" alt="menu"
-                                        width="22px">
+                                    <img src="{% static 'images/menu-main/category/makeup.png' %}" alt="menu" width="22px">
                                     آرایشی و بهداشتی
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -539,22 +514,19 @@
                             </li>
                             <li id="nav-menu-item" class="menu-item">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/print.png' %}" alt="menu"
-                                        width="22px">
+                                    <img src="{% static 'images/menu-main/category/print.png' %}" alt="menu" width="22px">
                                     ابزار و اداری
                                 </a>
                             </li>
                             <li id="nav-menu-item" class="menu-item">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/suit.png' %}" alt="menu"
-                                        width="22px">
+                                    <img src="{% static 'images/menu-main/category/suit.png' %}" alt="menu" width="22px">
                                     مد و پوشاک
                                 </a>
                             </li>
                             <li id="nav-menu-item" class="menu-item nav-overlay">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/home.png' %}" alt="menu"
-                                        width="22px">
+                                    <img src="{% static 'images/menu-main/category/home.png' %}" alt="menu" width="22px">
                                     خانه و آشپزخانه
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -736,8 +708,7 @@
                             </li>
                             <li id="nav-menu-item" class="menu-item nav-overlay">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/edit.png' %}" alt="menu"
-                                        width="22px">
+                                    <img src="{% static 'images/menu-main/category/edit.png' %}" alt="menu" width="22px">
                                     لوازم تحریر و هنر
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -799,20 +770,21 @@
                             </li>
                             <li id="nav-menu-item" class="menu-item">
                                 <a href="#" class="current-link-menu">
-                                    <img src="{% static 'images/menu-main/category/child.png' %}" alt="menu"
-                                        width="22px">
+                                    <img src="{% static 'images/menu-main/category/child.png' %}" alt="menu" width="22px">
                                     کودک و نوزاد
                                 </a>
                             </li>
                             <li class="divider-space-card">
-                                <div class="header-cart-basket" dir="rtl">
-                                    <a href="{% url 'cart:session-cart-summary' %}" class="cart-basket-box">
+                                <div class="header-cart-basket">
+                                    <a href="#" class="cart-basket-box">
                                         <span class="icon-cart">
                                             <i class="mdi mdi-shopping"></i>
                                         </span>
                                         <span class="title-cart">سبد خرید</span>
-                                        <span class="price-cart"> {{ total_price|intcomma }} <span>تومان</span></span> 
-                                        <span class="count-cart">{{ cart.get_total_quantity }}</span>
+                                        <span class="price-cart">25,000,000
+                                            <span>تومان</span>
+                                        </span>
+                                        <span class="count-cart">2</span>
                                     </a>
                                     <div class="widget-shopping-cart">
                                         <div class="widget-shopping-cart-content">
@@ -826,8 +798,7 @@
                                                                         <i class="mdi mdi-close"></i>
                                                                     </a>
                                                                     <a href="#" class="mini-cart-item-image d-block">
-                                                                        <img
-                                                                            src="{% static 'images/menu-main/img-card.jpg' %}">
+                                                                        <img src="{% static 'images/menu-main/img-card.jpg' %}">
                                                                     </a>
                                                                     <span class="product-name-card">لپ تاپ چووی
                                                                         الترابوک 14
@@ -911,8 +882,7 @@
                 <div class="nav-header">
                     <div class="header-cover"></div>
                     <div class="logo-wrap">
-                        <a class="logo-icon" href="#"><img alt="logo-icon" src="{% static 'images/logo.png' %}"
-                                width="40"></a>
+                        <a class="logo-icon" href="#"><img alt="logo-icon" src="{% static 'images/logo.png' %}" width="40"></a>
                     </div>
                 </div>
                 <ul class="nav-categories ul-base">
@@ -1075,11 +1045,109 @@
             <!--    responsive-megamenu-mobile----------------->
         </div>
     </header>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">جستجو</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="header-search text-right">
+                        <div class="header-search-box">
+                            <form action="#" class="form-search">
+                                <input type="search" class="header-search-input" name="search-input"
+                                    placeholder="نام کالا، برند و یا دسته مورد نظر خود را جستجو کنید…">
+                                <div class="action-btns">
+                                    <button class="btn btn-search" type="submit">
+                                        <img src="{% static 'images/search.png' %}" alt="search">
+                                    </button>
+                                    <div class="search-filter">
+                                        <div class="form-ui">
+                                            <div class="custom-select-ui">
+                                                <select class="right">
+                                                    <option>همه دسته ها</option>
+                                                    <option>کالای دیجیتال</option>
+                                                    <option>آرایشی بهداشتی</option>
+                                                    <option>ابزاری اداری</option>
+                                                    <option>مد پوشاک</option>
+                                                    <option>خانه آشپز خانه</option>
+                                                    <option>لوازم تحریر و هنر</option>
+                                                    <option>کودک و نوزاد</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="search-result">
+                                <ul class="search-result-list mb-0">
+                                    <li>
+                                        <a href="#"><i class="mdi mdi-clock-outline"></i>
+                                            کالای دیجیتال
+                                            <button class="btn btn-light btn-continue-search" type="submit">
+                                                <i class="fa fa-angle-left"></i>
+                                            </button>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="mdi mdi-clock-outline"></i>
+                                            آرایشی و بهداشتی
+                                            <button class="btn btn-light btn-continue-search" type="submit">
+                                                <i class="fa fa-angle-left"></i>
+                                            </button>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="mdi mdi-clock-outline"></i>
+                                            گوشی موبایل
+                                            <button class="btn btn-light btn-continue-search" type="submit">
+                                                <i class="fa fa-angle-left"></i>
+                                            </button>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="mdi mdi-clock-outline"></i>
+                                            تبلت
+                                            <button class="btn btn-light btn-continue-search" type="submit">
+                                                <i class="fa fa-angle-left"></i>
+                                            </button>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="mdi mdi-clock-outline"></i>
+                                            لپ تاپ
+                                            <button class="btn btn-light btn-continue-search" type="submit">
+                                                <i class="fa fa-angle-left"></i>
+                                            </button>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="mdi mdi-clock-outline"></i>
+                                            دوربین
+                                            <button class="btn btn-light btn-continue-search" type="submit">
+                                                <i class="fa fa-angle-left"></i>
+                                            </button>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="localSearchSimple"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="nav-categories-overlay"></div>
+    <div class="overlay-search-box"></div>
+    <!-- header-------------------------------->
 
-    {% block content %}
-    {% endblock content %}
-
-    <!-- footer------------------------------------------->
+    <!-- footer-------------------------------->
     <footer class="footer-main-site">
         <section class="d-block d-xl-block d-lg-block d-md-block d-sm-block order-1">
             <div class="footer-shopping-social">
@@ -1234,13 +1302,12 @@
                                 <div class="footer-content d-block">
                                     <div class="text pr-1">
                                         <h2 class="title">فروشگاه اینترنتی کالامارکت</h2>
-                                        <p class="desc"> کالامارکت به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی
-                                            با بیش از یک دهه تجربه، با پایبندی به سه اصل کلیدی، پرداخت در محل، 7 روز
-                                            ضمانت بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده تا همگام با
-                                            فروشگاه‌های معتبر جهان، به بزرگ‌ترین فروشگاه اینترنتی ایران تبدیل شود.
-                                            به محض ورود به کالامارکت با یک سایت پر از کالا رو به رو می‌شوید! هر
-                                            آنچه که نیاز دارید و به ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.
-                                        </p>
+                                        <p class="desc"> کالامارکت به عنوان یکی از قدیمی‌ترین فروشگاه های اینترنتی با
+                                            بیش از یک دهه تجربه، با پایبندی به سه اصل کلیدی، پرداخت در محل، 7 روز ضمانت
+                                            بازگشت کالا و تضمین اصل‌بودن کالا، موفق شده تا همگام با فروشگاه‌های معتبر
+                                            جهان، به بزرگ‌ترین فروشگاه اینترنتی ایران تبدیل شود. به محض ورود به دیجی
+                                            اسمارت با یک سایت پر از کالا رو به رو می‌شوید! هر آنچه که نیاز دارید و به
+                                            ذهن شما خطور می‌کند در اینجا پیدا خواهید کرد.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1295,7 +1362,7 @@
         </svg>
     </div>
     <!-- scroll_Progress------------------------->
-    <!-- Page Loader---------------------------
+    <!-- Page Loader----------------------------->
     <div class="P-loader">
         <div class="P-loader-content">
             <div class="logo-loader">
@@ -1305,74 +1372,27 @@
                 <img src="{% static 'images/three-dots.svg' %}" width="50" alt="">
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- Page Loader----------------------------->
-
-
-
-
-    <!-- file js---------------------------------------------------->
-    <script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'js/vendor/bootstrap.js' %}"></script>
-    <!-- plugin----------------------------------------------------->
-    <script src="{% static 'js/vendor/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery.countdown.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery.nice-select.min.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery.jqZoom.js' %}"></script>
-    <!-- main js---------------------------------------------------->
-    <script src="{% static 'js/main.js' %}"></script>
-    <!-- The Toastify Config js -->
-    <script src="{% static 'toastify/toastify-es.js' %}"></script>
-    <script src="{% static 'toastify/toastify.js' %}"></script>
-
-
-    <script src="{% static 'js/vendor/ResizeSensor.min.js' %}"></script>
-    <script src="{% static 'js/vendor/theia-sticky-sidebar.min.js' %}"></script>
-    <script src="{% static 'js/vendor/wNumb.js' %}"></script>
-    <script src="{% static 'js/vendor/nouislider.min.js' %}"></script>
-
-
-    <script>
-        function AddProductToCart(product_id,qty){
-            $.ajax({
-                type: "POST",
-                url: "{% url 'cart:session-add-product' %}",
-                data: {
-                  csrfmiddlewaretoken:'{{ csrf_token }}',
-                  product_id:product_id,
-                  quantity:qty,
-                },
-                success: function(response){
-                    $("#count-cart").html(response.total_qty)
-                    window.location.reload()
-                },
-                error: function (err,errmsg,xhr) {
-                  console.log(err)
-                }
-            });
-    
-        }
-    </script>
-
-    {% block extra_js %}
-    <!-- file js---------------------------------------------------->
-    <script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
-    <script src="{% static 'js/vendor/bootstrap.js' %}"></script>
-    <!-- plugin----------------------------------------------------->
-    <script src="{% static 'js/vendor/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery.countdown.js' %}"></script>
-    <script src="{% static 'js/vendor/lightgallery-all.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery.ez-plus.js' %}"></script>
-    <script src="{% static 'js/vendor/jquery.nice-select.min.js' %}"></script>
-    <!-- main js---------------------------------------------------->
-    <script src="{% static 'js/main.js' %}"></script>
-    {% endblock extra_js %}
-
-    {% block extra_js_no_compress %}
-    {% endblock extra_js_no_compress %}
-
-    {% include 'messages.html' %}
 
 </body>
 
+<!-- file js---------------------------------------------------->
+<script src="{% static 'js/vendor/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.js' %}"></script>
+<!-- plugin----------------------------------------------------->
+<script src="{% static 'js/vendor/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery.countdown.js' %}"></script>
+<script src="{% static 'js/vendor/ResizeSensor.min.js' %}"></script>
+<script src="{% static 'js/vendor/theia-sticky-sidebar.min.js' %}"></script>
+<script src="{% static 'js/vendor/wNumb.js' %}"></script>
+<script src="{% static 'js/vendor/nouislider.min.js' %}"></script>
+<script src="{% static 'js/vendor/jquery.nice-select.min.js' %}"></script>
+<!-- main js---------------------------------------------------->
+<script src="{% static 'js/main.js' %}"></script>
+
+    {% block extra_js %}
+    {% endblock %}
+    {% block extra_js_no_compress %}{% endblock %}
+    {% include 'messages.html' %}
 </html>
